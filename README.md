@@ -12,5 +12,5 @@ Student Info
 
 * Name: *Tran Ngoc Viet Anh*
 * ID: *BA12-003*
-* Group ID: *Your Group ID here*
+* Group ID: *8*
 * Project Name: *Your Project Name here*
