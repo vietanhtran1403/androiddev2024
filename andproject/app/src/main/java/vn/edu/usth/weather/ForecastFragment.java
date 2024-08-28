@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -62,7 +64,23 @@ public class ForecastFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = new TextView(getContext());
         view.setBackgroundColor(Color.parseColor("#20FF0000"));
-        return view;
+
+        TextView tvDay = new TextView(getContext());
+        String day = "Thursday";
+        tvDay.setText(day);
+
+        ImageView ivWeatherIcon = new ImageView(getContext());
+        int weatherIconResId = R.drawable.cloudy_day;
+        ivWeatherIcon.setImageResource(weatherIconResId);
+
+        LinearLayout linearLayout = new LinearLayout(getContext());
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        linearLayout.addView(tvDay);
+        linearLayout.addView(ivWeatherIcon);
+        linearLayout.addView(view);
+
+
+        return linearLayout;
         // return inflater.inflate(R.layout.fragment_forecast, container, false);
 
     }
