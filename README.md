@@ -13,4 +13,4 @@ Student Info
 * Name: *Tran Ngoc Viet Anh*
 * ID: *BA12-003*
 * Group ID: *8*
-* Project Name: *Your Project Name here*
+* Project Name: *Wordpress Client*
