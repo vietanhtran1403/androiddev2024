@@ -1,54 +1,47 @@
 package vn.edu.usth.weather;
-
 import android.os.Bundle;
 import android.util.Log;
-
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 public class WeatherActivity extends AppCompatActivity {
-    private static final String WA = "WeatherActivity";
-    ForecastFragment forecastFragment = new ForecastFragment();
-
+    private static final String Tag = "WeatherActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ForecastFragment forecastFragment = new ForecastFragment();
+//
+//        getSupportFragmentManager().beginTransaction().add(
+//                R.id.main, forecastFragment).commit();
+        setContentView(R.layout.activity_main);
 
-        getSupportFragmentManager().beginTransaction().add(
-                R.id.activity_weather, forecastFragment).commit();
-
-        setContentView(R.layout.fragment_forecast);
-        getSupportFragmentManager().beginTransaction().add(R.id.main1,forecastFragment).commit();
-        Log.i(WA,"onCreate");
+        Log.i(Tag, "Create");
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(WA, "onStart");
+        Log.i(Tag, "Start");
     }
-
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i(WA, "onResume");
+        Log.i(Tag, "Resume");
     }
-
     @Override
-    protected void onPause(){
+    protected void onPause() {
         super.onPause();
-        Log.i(WA, "onPause");
+        Log.i(Tag, "Pause");
     }
     @Override
-    protected void onStop(){
+    protected void onStop() {
+        Log.i(Tag, "Stop");
         super.onStop();
-        Log.i(WA, "onStop");
     }
-
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
-        Log.i(WA, "onDestroy");
+        Log.i(Tag, "Destroy");
     }
-}
-
-
