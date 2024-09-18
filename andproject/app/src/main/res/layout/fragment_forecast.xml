@@ -17,7 +17,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Mon" />
+            android:text="@string/monday" />
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Tue"/>
+            android:text="@string/tuesday"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Wed"/>
+            android:text="@string/Wednesday"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Thu"/>
+            android:text="@string/thursday"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Fri"/>
+            android:text="@string/friday"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Sat"/>
+            android:text="@string/friday"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Sun"/>
+            android:text="@string/saturday"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -171,7 +171,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Mon"/>
+            android:text="@string/monday"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -193,7 +193,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Tue"/>
+            android:text="@string/tuesday"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -215,7 +215,7 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Wed"/>
+            android:text="@string/Wednesday"/>
         <ImageView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
