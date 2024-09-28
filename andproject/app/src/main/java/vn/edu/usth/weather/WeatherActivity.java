@@ -3,6 +3,7 @@ package vn.edu.usth.weather;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,9 +35,11 @@ public class WeatherActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(pager);
 
-        mediaPlayer = MediaPlayer.create(this, R.raw.audio1);
+//        mediaPlayer = MediaPlayer.create(this, R.raw.audio1);
+//        mediaPlayer.start();
 
-        mediaPlayer.start();
+        Toolbar Toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(Toolbar);
 
         Log.i(Tag, "Create");
     }
