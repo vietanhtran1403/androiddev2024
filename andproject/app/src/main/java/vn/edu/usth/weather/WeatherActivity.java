@@ -2,11 +2,16 @@ package vn.edu.usth.weather;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
-import androidx.appcompat.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -18,6 +23,7 @@ import com.google.android.material.tabs.TabLayout;
 public class WeatherActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     private static final String Tag = "WeatherActivity";
+    private Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +47,25 @@ public class WeatherActivity extends AppCompatActivity {
         Toolbar Toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(Toolbar);
 
+        handler = new Handler(Looper.getMainLooper());
+
         Log.i(Tag, "Create");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.refresh) {
+            simulateNetworkRequest();
+        return true;
+        }
+        return false;
     }
 
     @Override
@@ -92,7 +116,17 @@ public class WeatherActivity extends AppCompatActivity {
         }
         public CharSequence getPageTitle(int page) {
             // returns a tab title corresponding to the specified page
-            return titles[page];
+            return titles[page];}
         }
+    }
+    private void simulateNetworkRequest() {
+        new Thread(() -> {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            handler.post(() -> Toast.makeText(WeatherActivity.this, "Data refreshed!", Toast.LENGTH_SHORT).show());
+        }).start();
     }
 }
