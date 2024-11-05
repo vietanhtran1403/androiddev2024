@@ -2,14 +2,14 @@ package vn.edu.usth.weather;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+
+import android.os.AsyncTask;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -23,7 +23,7 @@ import com.google.android.material.tabs.TabLayout;
 public class WeatherActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     private static final String Tag = "WeatherActivity";
-    private Handler handler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +46,14 @@ public class WeatherActivity extends AppCompatActivity {
 
         Toolbar Toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(Toolbar);
+        viewPager = findViewById(R.id.pager);
+        tabLayout = findViewById(R.id.tab);
+        viewPagerAdapter.addFragment(new WeatherAndForecastFragment(), "HANOI, VIETNAM");
+        viewPagerAdapter.addFragment(new WeatherAndForecastFragment(), "PARIS, FRANCE");
+        viewPagerAdapter.addFragment(new WeatherAndForecastFragment(), "TOULOUSE, FRANCE");
 
-        handler = new Handler(Looper.getMainLooper());
+        viewPager.setAdapter(viewPagerAdapter);
 
-        Log.i(Tag, "Create");
     }
 
     @Override
@@ -129,4 +133,18 @@ public class WeatherActivity extends AppCompatActivity {
             handler.post(() -> Toast.makeText(WeatherActivity.this, "Data refreshed!", Toast.LENGTH_SHORT).show());
         }).start();
     }
+    private class RefreshDataTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            // Bạn có thể thêm đoạn mã để hiển thị tiến trình trước khi tải dữ liệu
+            Toast.makeText(WeatherActivity.this, "Refreshing data...", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            // Hiển thị thông báo khi dữ liệu đã được làm mới
+            Toast.makeText(WeatherActivity.this, "Data refreshed!", Toast.LENGTH_SHORT).show();
+        }
 }
